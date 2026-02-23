@@ -543,3 +543,32 @@ Dobrze napisane testy są proste i czytelne — nie stanowią bagażu spowalniaj
 Programista, który ma testy, nie boi się zmian w kodzie, eksperymentów i refaktoringu — **jest odważny**. Tej odwagi wam życzę.
 
 ---
+
+
+## Praktyczne rady
+
+Na koniec kilka praktycznych zasad, które warto stosować podczas codziennej pracy z testami jednostkowymi:
+1.	**Zdefiniuj przypadki testowe przed implementacją**
+Zastanów się nad scenariuszami pozytywnymi i negatywnymi jeszcze zanim napiszesz kod. Uwzględniaj warunki brzegowe oraz sytuacje wyjątkowe — to one najczęściej ujawniają błędy projektowe.
+
+2.	**Nadaj testom nazwy widziane oczami biznesu**
+Test powinien opisywać zachowanie systemu, a nie szczegóły implementacyjne. Nazwy scenariuszy powinny komunikować intencję i wartość biznesową.
+
+3.	**Pisz testy proste i skuteczne**
+Testy nie powinny być skomplikowane ani przeładowane logiką. Im prostszy test, tym łatwiej zrozumieć jego cel i szybciej wykryć przyczynę błędu.
+
+4.	**Przestrzegaj struktury _Arrange-Act-Assert_ (AAA)**
+Wyraźny podział na przygotowanie, wykonanie i asercję zwiększa czytelność testów oraz pozwala traktować je jako formę dokumentacji.
+
+5.	**Izoluj logikę biznesową od infrastruktury**
+Unikaj bezpośrednich zależności od UI, IO, czasu systemowego czy API zewnętrznych — korzystaj z abstrakcji i Dependency Injection.
+
+6.	**Testuj zachowanie, nie implementację**
+Skupiaj się na rezultatach działania publicznego API klasy. Refaktoryzacja nie powinna wymuszać przepisywania testów.
+
+7.	**Traktuj testy jako wsparcie architektury**
+Dobrze napisane testy nie spowalniają pracy — pomagają w refaktoryzacji, eksperymentach i bezpiecznym rozwijaniu systemu.
+
+Pamiętaj — testy to nie dodatkowy obowiązek, ale narzędzie, które pozwala budować stabilny kod i pracować z większą pewnością.
+
+---
