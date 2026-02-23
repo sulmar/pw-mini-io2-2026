@@ -10,6 +10,8 @@ W praktyce często kończy się to chodzeniem na skróty — nie wszystkie scena
 
 Programiści, obawiają się zmian w kodzie wynikających z nowych wymagań biznesowych. Każda modyfikacja wydaje się ryzykowna, dlatego naturalną reakcją bywa zawyżanie estymacji i defensywne podejście do rozwoju systemu. Refaktoryzacja jest odkładana na później lub całkowicie pomijana — nawet gdy widać lepsze rozwiązanie architektoniczne — ponieważ pojawia się lęk, że zmiany mogą zdestabilizować aplikację i wprowadzić trudne do wykrycia błędy.
 
+To w rezultacie prowadzi do sytuacji, w której po wielu latach projekt staje się ciężki w utrzymaniu, a każda nowa funkcjonalność lub próba dostosowania systemu do zmieniających się realiów biznesowych pochłania coraz więcej czasu, energii i zwiększa ryzyko techniczne.
+
 
 ## Automatyzacja testów
 
