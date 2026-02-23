@@ -454,6 +454,29 @@ public int Add(int x, int y)
 
 Każda iteracja Red–Green–Refactor to mały, bezpieczny krok prowadzący do stabilnego i testowalnego kodu.
 
+---
+
+#	Architektura tworzona przez testy
+
+
+Konsekwencją stosowania TDD jest naturalna poprawa jakości architektury kodu. Pisanie testów przed implementacją wymusza tworzenie klas hermetycznych, skupionych na logice biznesowej i oderwanych od szczegółów infrastruktury takich jak UI, baza danych czy operacje IO. Kod staje się bardziej modularny, ponieważ zależności muszą być wstrzykiwane z zewnątrz, co sprzyja stosowaniu Dependency Injection. W efekcie powstają komponenty luźno powiązane, łatwiejsze do testowania, rozwijania i refaktoryzacji, a sama architektura systemu staje się bardziej elastyczna i odporna na zmiany.
+
+Podejście TDD bardzo naturalnie łączy się z zasadami SOLID oraz wzorcami projektowymi, ponieważ testowalność wymusza określony sposób projektowania kodu.
+
+Przede wszystkim TDD sprzyja przestrzeganiu zasady **Single Responsibility Principle (SRP)**. Klasy, które mają wiele odpowiedzialności, są trudne do przetestowania, dlatego podczas pisania testów szybko pojawia się potrzeba ich rozdzielenia na mniejsze, wyspecjalizowane komponenty. Dzięki temu logika biznesowa zostaje oddzielona od UI, IO czy infrastruktury.
+
+Zasada **Open/Closed Principle (OCP)** również wynika z TDD w sposób naturalny. Aby łatwo rozszerzać zachowanie bez łamania istniejących testów, kod zaczyna opierać się na abstrakcjach i polimorfizmie. Testy stają się wtedy bezpieczną siatką, która chroni istniejącą funkcjonalność podczas rozbudowy systemu.
+
+TDD wzmacnia także **Dependency Inversion Principle (DIP)**. Ponieważ testy wymagają izolowania zależności, klasy zaczynają zależeć od interfejsów zamiast konkretnych implementacji. To prowadzi do stosowania Dependency Injection oraz wzorców takich jak Strategy, Adapter czy Factory.
+
+Z perspektywy wzorców projektowych TDD często prowadzi do ich „organicznego” pojawienia się:
+- **Strategy** — gdy chcemy łatwo podmieniać zachowanie w testach,
+- **Adapter** — gdy oddzielamy kod domenowy od API zewnętrznych,
+- **Factory** — gdy upraszczamy tworzenie obiektów w testach,
+- **Facade** — gdy ukrywamy złożoność infrastruktury za prostym interfejsem.
+
+W praktyce oznacza to, że TDD nie tylko weryfikuje poprawność działania kodu, ale także wpływa na jego architekturę. 
+Kod pisany w ten sposób staje się bardziej hermetyczny, modularny i elastyczny, a wzorce projektowe przestają być teoretycznym narzędziem — zaczynają wynikać bezpośrednio z potrzeby utrzymania testowalności.
 
 ---
 
