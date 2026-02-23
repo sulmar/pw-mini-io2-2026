@@ -456,7 +456,7 @@ Każda iteracja Red–Green–Refactor to mały, bezpieczny krok prowadzący do 
 
 ---
 
-#	Architektura tworzona przez testy
+##	Architektura kodu
 
 
 Konsekwencją stosowania TDD jest naturalna poprawa jakości architektury kodu. Pisanie testów przed implementacją wymusza tworzenie klas hermetycznych, skupionych na logice biznesowej i oderwanych od szczegółów infrastruktury takich jak UI, baza danych czy operacje IO. Kod staje się bardziej modularny, ponieważ zależności muszą być wstrzykiwane z zewnątrz, co sprzyja stosowaniu Dependency Injection. W efekcie powstają komponenty luźno powiązane, łatwiejsze do testowania, rozwijania i refaktoryzacji, a sama architektura systemu staje się bardziej elastyczna i odporna na zmiany.
@@ -479,6 +479,7 @@ W praktyce oznacza to, że TDD nie tylko weryfikuje poprawność działania kodu
 Kod pisany w ten sposób staje się bardziej hermetyczny, modularny i elastyczny, a wzorce projektowe przestają być teoretycznym narzędziem — zaczynają wynikać bezpośrednio z potrzeby utrzymania testowalności.
 
 ---
+
 
 
 ## Mutation Testing — sprawdzanie jakości testów
