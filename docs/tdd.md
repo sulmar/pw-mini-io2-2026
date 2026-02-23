@@ -536,6 +536,6 @@ Często pojawia się argument: ***„nie mam czasu na pisanie testów”***. W p
 Dobrze napisane testy są proste i czytelne — nie stanowią bagażu spowalniającego rozwój kodu; wręcz przeciwnie, dodają pewności i działają jak skrzydła, które pozwalają rozwijać system szybciej i odważniej.
 
 
-Programista, który ma testy, nie boi się zmian w kodzie, eksperymentów i refaktoringu — **jest odważny**.
+Programista, który ma testy, nie boi się zmian w kodzie, eksperymentów i refaktoringu — **jest odważny**. Tej odwagi wam życzę.
 
 ---
