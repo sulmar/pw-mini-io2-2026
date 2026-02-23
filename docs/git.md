@@ -177,3 +177,8 @@ git branch
   np. `test/add-calculator-tests`, `test/improve-coverage`
 - **chore/…** — zmiany techniczne i porządkowe (bez wpływu na logikę biznesową)  
   np. `chore/update-dependencies`, `chore/cleanup-solution`
+
+## Zobacz też
+
+- **[Conventional Commits](https://www.conventionalcommits.org)** — konwencja formatowania wiadomości commitów (np. `feat:`, `fix:`, `docs:`), która ujednolica historię i ułatwia automatyczne generowanie changelogów; dobrze uzupełnia konwencje nazewnictwa gałęzi opisane powyżej.
+- **[Git Cheat Sheet – GitHub Education](https://education.github.com/git-cheat-sheet-education.pdf)** (PDF) — zwięzła ściągawka z najczęściej używanymi poleceniami Git; przydatna jako szybka ściągawka podczas codziennej pracy.
