@@ -18,7 +18,7 @@ Automatyczne testowanie kodu powstało właśnie jako odpowiedź na te wyzwania.
 Dzięki automatyzacji:
 - ograniczamy ryzyko regresji,
 - skracamy czas weryfikacji zmian,
--	zwiększamy pewność wdrożeń,
+- zwiększamy pewność wdrożeń,
 - odciążamy programistów od powtarzalnej pracy manualnej.
 
 Automatyczne testy nie zastępują całkowicie testowania manualnego, ale przenoszą ciężar sprawdzania logiki biznesowej na poziom kodu. To fundament nowoczesnego podejścia do jakości oprogramowania.
@@ -124,6 +124,8 @@ public class MyLibraryTests
   }
 }
 ```
+
+Wzorzec *Arrange-Act-Assert* zwiększa nie tylko czytelność testów, ale także sprawia, że mogą one pełnić rolę żywej dokumentacji systemu. Dobrze nazwane testy oraz przejrzysty podział na przygotowanie, wykonanie i asercję jasno pokazują, jak dana klasa powinna być używana i jakie zachowanie jest oczekiwane w konkretnych scenariuszach. W przeciwieństwie do tradycyjnej dokumentacji testy pozostają zawsze aktualne — jeśli opisane zachowanie przestaje być prawdziwe, test po prostu przestaje przechodzić.
 
 ## Parametryzacja testów
 
@@ -506,6 +508,9 @@ Testy jednostkowe to nie tylko narzędzie weryfikacji poprawności kodu. To prze
 	-	zwiększamy pewność wdrożeń.
 
 Często pojawia się argument: ***„nie mam czasu na pisanie testów”***. W praktyce jest odwrotnie — **nie masz czasu na niepisanie testów**, bo brak testów prędzej czy później prowadzi do kosztownych błędów, regresji i długiego debugowania.
+
+Dobrze napisane testy są proste i czytelne — nie stanowią bagażu spowalniającego rozwój kodu; wręcz przeciwnie, dodają pewności i działają jak skrzydła, które pozwalają rozwijać system szybciej i odważniej.
+
 
 Programista, który ma testy, nie boi się zmian w kodzie, eksperymentów i refaktoringu — **jest odważny**.
 
