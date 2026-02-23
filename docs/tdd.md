@@ -1,14 +1,30 @@
 
 # Automatyzacja testów
 
-## Wstęp
+## Wprowadzenie
+
+W wielu zespołach proces weryfikacji działania aplikacji zaczyna się od testowania ręcznego. Programista uruchamia aplikację, klika kolejne scenariusze i sprawdza, czy wszystko działa zgodnie z oczekiwaniami. Na początku projektu może to wydawać się wystarczające, jednak wraz ze wzrostem złożoności systemu testowanie manualne staje się coraz bardziej czasochłonne i trudne do utrzymania.
+
+W praktyce często kończy się to chodzeniem na skróty — nie wszystkie scenariusze są sprawdzane, regresja bywa pomijana, a testy wykonywane są tylko „na szybko”, tuż przed wdrożeniem. Presja czasu powoduje, że część przypadków brzegowych zostaje pominięta, co prowadzi do błędów trafiających na produkcję. Konsekwencją są nie tylko dodatkowe poprawki i stres w zespole, ale także frustracja końcowych użytkowników, którzy jako pierwsi odkrywają problemy.
+
+
+Programiści, obawiają się zmian w kodzie wynikających z nowych wymagań biznesowych. Każda modyfikacja wydaje się ryzykowna, dlatego naturalną reakcją bywa zawyżanie estymacji i defensywne podejście do rozwoju systemu. Refaktoryzacja jest odkładana na później lub całkowicie pomijana — nawet gdy widać lepsze rozwiązanie architektoniczne — ponieważ pojawia się lęk, że zmiany mogą zdestabilizować aplikację i wprowadzić trudne do wykrycia błędy.
 
 
 ## Automatyzacja testów
-To proces tworzenia i uruchamiania testów w sposób zautomatyzowany, bez konieczności ręcznej interwencji programisty lub testera. Jej celem jest szybkie i powtarzalne sprawdzanie poprawności działania aplikacji po każdej zmianie w kodzie. Automatyczne testy stanowią istotny element nowoczesnych praktyk wytwarzania oprogramowania, takich jak Continuous Integration i Continuous Delivery, ponieważ skracają czas weryfikacji zmian oraz zmniejszają ryzyko regresji.
+
+Automatyczne testowanie kodu powstało właśnie jako odpowiedź na te wyzwania. Zamiast wielokrotnie ręcznie wykonywać te same kroki, zapisujemy scenariusze w postaci testów, które można uruchamiać wielokrotnie, szybko i w sposób powtarzalny. Testy stają się częścią procesu wytwarzania oprogramowania — działają jak siatka bezpieczeństwa, która natychmiast informuje nas o niepożądanych zmianach w zachowaniu systemu.
+
+Dzięki automatyzacji:
+- ograniczamy ryzyko regresji,
+- skracamy czas weryfikacji zmian,
+-	zwiększamy pewność wdrożeń,
+- odciążamy programistów od powtarzalnej pracy manualnej.
+
+Automatyczne testy nie zastępują całkowicie testowania manualnego, ale przenoszą ciężar sprawdzania logiki biznesowej na poziom kodu. To fundament nowoczesnego podejścia do jakości oprogramowania.
 
 ## Podział testów
-Odnosi się do klasyfikacji testów według ich zakresu i poziomu abstrakcji. 
+Testy mozemy podzielić według ich zakresu i poziomu abstrakcji. 
 
 Najczęściej wyróżnia się:
 - testy jednostkowe (unit tests), 
