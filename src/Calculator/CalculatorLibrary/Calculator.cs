@@ -1,4 +1,4 @@
-﻿namespace CalculatorLibrary;
+namespace CalculatorLibrary;
 
 public class Calculator
 {
