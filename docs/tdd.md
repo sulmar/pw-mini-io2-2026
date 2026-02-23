@@ -226,9 +226,9 @@ Jeśli czujesz potrzebę testowania private — to sygnał, że kod może wymaga
 ## Kod niestowalny — problem i rozwiązanie
 
 Jednym z częstych powodów trudności w testowaniu jest używanie elementów zależnych od środowiska lub czasu, takich jak:
--	DateTime.Now
--	Guid.NewGuid()
--	losowość (Random)
+-	`DateTime.Now`
+-	`Guid.NewGuid()`
+-	losowość (`Random`)
 -	statyczne API systemowe
 
 Kod korzystający bezpośrednio z bieżącego czasu staje się niedeterministyczny, co łamie zasadę Repeatable z FIRST.
@@ -255,7 +255,7 @@ Manipulowanie zegarem systemowym powoduje efekty uboczne w całym środowisku i 
 
 ### Rozwiązanie — wstrzykiwanie zależności (abstrakcja czasu)
 
-Zamiast używać statycznego DateTime.Now, wprowadzamy interfejs:
+Zamiast używać statycznego `DateTime.Now`, wprowadzamy interfejs:
 
 ```cs
 public interface IClock
@@ -372,7 +372,9 @@ Korzyści z użycia `TimeProvider`:
 
 
 # TDD (Test-Driven Development) 
-to technika wytwarzania oprogramowania, w której testy powstają przed implementacją kodu produkcyjnego. Programista rozpoczyna od napisania testu opisującego oczekiwane zachowanie (Red), następnie tworzy minimalną implementację spełniającą wymagania testu (Green), a na końcu refaktoryzuje kod, poprawiając jego strukturę bez zmiany funkcjonalności (Refactor). Podejście to sprzyja tworzeniu luźno powiązanych komponentów, zwiększa testowalność kodu oraz pomaga utrzymać wysoką jakość projektu poprzez ciągłą weryfikację założeń biznesowych
+to technika wytwarzania oprogramowania, w której testy powstają przed implementacją kodu produkcyjnego. Programista rozpoczyna od napisania testu opisującego oczekiwane zachowanie (**Red**), następnie tworzy minimalną implementację spełniającą wymagania testu (**Green**), a na końcu refaktoryzuje kod, poprawiając jego strukturę bez zmiany funkcjonalności (**Refactor**). 
+
+Podejście to sprzyja tworzeniu luźno powiązanych komponentów, zwiększa testowalność kodu oraz pomaga utrzymać wysoką jakość projektu poprzez ciągłą weryfikację założeń biznesowych
 
 
 ## Cykl Red-Green-Refactor 
