@@ -18,8 +18,8 @@ git clone https://github.com/sulmar/pw-mini-io2-2026
 
 Materiały do nauki i referencje:
 
-- **git.md** — kontrola wersji w Git: wprowadzenie, model pracy (commity, branchy, merge), dobre praktyki oraz powiązanie z TDD.
-- **tdd.md** — automatyzacja testów i TDD: wprowadzenie, podział testów (jednostkowe, integracyjne itd.), praktyki pracy z testami.
+- [**git.md**](docs/git.md) — kontrola wersji w Git: wprowadzenie, model pracy (commity, branchy, merge), dobre praktyki oraz powiązanie z TDD.
+- [**tdd.md**](docs/tdd.md) — automatyzacja testów i TDD: wprowadzenie, podział testów (jednostkowe, integracyjne itd.), praktyki pracy z testami.
 
 ### src
 
