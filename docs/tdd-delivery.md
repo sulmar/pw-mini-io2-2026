@@ -479,7 +479,7 @@ public void Calculate_InvalidDeliveryType_ThrowsException()
 }
 ```
 
-#### Kolejny krok — testowanie strategii i dekoratora w izolacji
+### Iteracja 5 — testowanie strategii i dekoratora w izolacji
 
 Po refaktoryzacji warto uprościć testy i przenieść ciężar weryfikacji logiki do poziomu poszczególnych strategii oraz dekoratora. Zamiast testować złożony obiekt `DeliveryCostCalculator`, testujemy mniejsze, niezależne elementy.
 
