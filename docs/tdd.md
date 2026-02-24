@@ -458,6 +458,8 @@ public int Add(int x, int y)
 
 Każda iteracja Red–Green–Refactor to mały, bezpieczny krok prowadzący do stabilnego i testowalnego kodu.
 
+Szczegółowe zadanie do ćwiczenia TDD: [Kalkulator kosztu dostawy](tdd-delivery.md).
+
 ---
 
 ##	Architektura kodu
