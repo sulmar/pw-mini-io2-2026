@@ -1,13 +1,11 @@
 namespace Gpu;
 
-public sealed class Gpu
+public class Gpu
 {
-    private GpuStatus _status = GpuStatus.Idle;
-
-    public GpuStatus Status => _status;
+    public GpuStatus Status { get; private set; } = GpuStatus.Idle;
 
     public void Start()
     {
-        _status = GpuStatus.IsRunning;
+        Status = GpuStatus.IsRunning;
     }
 }

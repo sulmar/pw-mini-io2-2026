@@ -2,10 +2,10 @@ using Gpu;
 
 namespace Gpu.Tests;
 
-public class GpuStartTests
+public class GpuTests
 {
     [Fact]
-    public void Start_WhenIdle_SetsStatusToIsRunning()
+    public void Start_whenGpuIsIdle_setsStatusToIsRunning()
     {
         // Arrange
         var gpu = new Gpu();
