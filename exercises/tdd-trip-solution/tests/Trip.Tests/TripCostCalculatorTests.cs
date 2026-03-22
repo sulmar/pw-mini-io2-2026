@@ -4,15 +4,16 @@ namespace Trip.Tests;
 
 public class TripCostCalculatorTests
 {
+    private readonly TripCostCalculator _sut = new();
+
     [Fact]
     public void Calculate_WhenRatePerKmIsNotPositive_ThrowsArgumentOutOfRangeException()
     {
         // Arrange
-        var calculator = new TripCostCalculator();
 
         // Act
-        var exZero = Assert.Throws<ArgumentOutOfRangeException>(() => calculator.Calculate(100m, 0m));
-        var exNegative = Assert.Throws<ArgumentOutOfRangeException>(() => calculator.Calculate(100m, -1m));
+        var exZero = Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Calculate(100m, 0m));
+        var exNegative = Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Calculate(100m, -1m));
 
         // Assert
         Assert.Equal("ratePerKm", exZero.ParamName);
@@ -23,10 +24,9 @@ public class TripCostCalculatorTests
     public void Calculate_WhenDistanceKmIsNegative_ThrowsArgumentOutOfRangeException()
     {
         // Arrange
-        var calculator = new TripCostCalculator();
 
         // Act
-        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => calculator.Calculate(-1m, 2m));
+        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Calculate(-1m, 2m));
 
         // Assert
         Assert.Equal("distanceKm", ex.ParamName);
@@ -42,10 +42,9 @@ public class TripCostCalculatorTests
         decimal expectedCost)
     {
         // Arrange
-        var calculator = new TripCostCalculator();
 
         // Act
-        var cost = calculator.Calculate(distanceKm, ratePerKm);
+        var cost = _sut.Calculate(distanceKm, ratePerKm);
 
         // Assert
         Assert.Equal(expectedCost, cost);
