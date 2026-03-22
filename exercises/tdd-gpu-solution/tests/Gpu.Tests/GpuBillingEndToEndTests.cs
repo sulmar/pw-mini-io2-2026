@@ -20,6 +20,7 @@ public class GpuBillingEndToEndTests
         IGpuCostCalculator baseCalculator = new GpuCostCalculator();
         var uncappedCost = baseCalculator.Calculate(hourlyRate, gpu.TotalRunningTime);
 
+        // Ten sam czas pracy, ale koszt przez dekorator (limit 20 zamiast pełnego 30).
         IGpuCostCalculator cappedCalculator = new MaxCostGpuCostCalculatorDecorator(new GpuCostCalculator(), 20m);
         var cappedCost = cappedCalculator.Calculate(hourlyRate, gpu.TotalRunningTime);
 

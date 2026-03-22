@@ -2,12 +2,13 @@ using Gpu;
 
 namespace Gpu.Tests;
 
+// Testy wzorca Decorator: obiekt wewnętrzny (GpuCostCalculator) + warstwa ograniczenia kosztu.
 public class MaxCostGpuCostCalculatorDecoratorTests
 {
     [Fact]
     public void Constructor_WhenMaxCostIsNegative_ThrowsArgumentOutOfRangeException()
     {
-        // Arrange
+        // Arrange — dekorator przyjmuje wewnętrzny IGpuCostCalculator
         IGpuCostCalculator inner = new GpuCostCalculator();
 
         // Act
@@ -28,7 +29,7 @@ public class MaxCostGpuCostCalculatorDecoratorTests
         decimal maxCost,
         decimal expected)
     {
-        // Arrange
+        // Arrange — dekorator owija konkretny kalkulator (inner)
         IGpuCostCalculator inner = new GpuCostCalculator();
         var calculator = new MaxCostGpuCostCalculatorDecorator(inner, maxCost);
         var duration = TimeSpan.FromHours(hours);

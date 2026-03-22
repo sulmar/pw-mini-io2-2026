@@ -1,5 +1,6 @@
 namespace Gpu;
 
+// Konkretny komponent: sam wzór kosztu; może być opakowany przez dekoratory (np. MaxCostGpuCostCalculatorDecorator).
 public sealed class GpuCostCalculator : IGpuCostCalculator
 {
     public decimal Calculate(decimal hourlyRate, TimeSpan duration)

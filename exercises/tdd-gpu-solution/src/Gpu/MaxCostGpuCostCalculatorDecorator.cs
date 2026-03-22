@@ -1,5 +1,7 @@
 namespace Gpu;
 
+// Decorator: opakowuje dowolny IGpuCostCalculator (_inner), deleguje obliczenie,
+// a następnie ogranicza wynik do maksymalnego kosztu (bez zmiany klasy GpuCostCalculator).
 public sealed class MaxCostGpuCostCalculatorDecorator : IGpuCostCalculator
 {
     private readonly IGpuCostCalculator _inner;
@@ -18,6 +20,7 @@ public sealed class MaxCostGpuCostCalculatorDecorator : IGpuCostCalculator
 
     public decimal Calculate(decimal hourlyRate, TimeSpan duration)
     {
+        // Najpierw zachowanie opakowywanego obiektu, potem dodatkowa odpowiedzialność dekoratora.
         var cost = _inner.Calculate(hourlyRate, duration);
         return Math.Min(cost, _maxCost);
     }
