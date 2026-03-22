@@ -10,7 +10,7 @@ public class GpuTests
         // Arrange
 
         // Act
-        var gpu = new Gpu(1m);
+        var gpu = new Gpu();
 
         // Assert
         Assert.Equal(GpuStatus.Idle, gpu.Status);
@@ -20,7 +20,7 @@ public class GpuTests
     public void Start_WhenGpuIsIdle_SetsStatusToIsRunning()
     {
         // Arrange
-        var gpu = new Gpu(1m);
+        var gpu = new Gpu();
 
         // Act
         gpu.Start();
@@ -33,7 +33,7 @@ public class GpuTests
     public void Start_WhenGpuIsAlreadyRunning_ThrowsInvalidOperationExceptionWithExpectedMessage()
     {
         // Arrange
-        var gpu = new Gpu(1m);
+        var gpu = new Gpu();
         gpu.Start();
 
         // Act
@@ -47,7 +47,7 @@ public class GpuTests
     public void Stop_WhenGpuIsRunning_SetsStatusToIdle()
     {
         // Arrange
-        var gpu = new Gpu(1m);
+        var gpu = new Gpu();
         gpu.Start();
 
         // Act
@@ -61,7 +61,7 @@ public class GpuTests
     public void Stop_WhenGpuIsIdle_ThrowsInvalidOperationExceptionWithExpectedMessage()
     {
         // Arrange
-        var gpu = new Gpu(1m);
+        var gpu = new Gpu();
 
         // Act
         var exception = Assert.Throws<InvalidOperationException>(() => gpu.Stop());
@@ -71,25 +71,11 @@ public class GpuTests
     }
 
     [Fact]
-    public void Constructor_WhenHourlyRateIsNotPositive_ThrowsArgumentOutOfRangeException()
-    {
-        // Arrange
-
-        // Act
-        var exWhenZero = Assert.Throws<ArgumentOutOfRangeException>(() => new Gpu(0m));
-        var exWhenNegative = Assert.Throws<ArgumentOutOfRangeException>(() => new Gpu(-10m));
-
-        // Assert
-        Assert.Equal("hourlyRate", exWhenZero.ParamName);
-        Assert.Equal("hourlyRate", exWhenNegative.ParamName);
-    }
-
-    [Fact]
-    public void GetTotalCost_WhenStoppedAfterOneHourOfRunning_ReturnsHourlyRateTimesElapsedHours()
+    public void TotalRunningTime_WhenStoppedAfterOneHourOfRunning_EqualsOneHour()
     {
         // Arrange
         var clock = new FakeTimeProvider(new DateTimeOffset(2025, 1, 1, 12, 0, 0, TimeSpan.Zero));
-        var gpu = new Gpu(25m, clock);
+        var gpu = new Gpu(clock);
 
         // Act
         gpu.Start();
@@ -97,15 +83,15 @@ public class GpuTests
         gpu.Stop();
 
         // Assert
-        Assert.Equal(25m, gpu.GetTotalCost());
+        Assert.Equal(TimeSpan.FromHours(1), gpu.TotalRunningTime);
     }
 
     [Fact]
-    public void GetTotalCost_WhenStoppedAfterFiveHoursOfRunning_ReturnsHourlyRateTimesFive()
+    public void TotalRunningTime_WhenStoppedAfterFiveHoursOfRunning_EqualsFiveHours()
     {
         // Arrange
         var clock = new FakeTimeProvider(new DateTimeOffset(2025, 6, 1, 0, 0, 0, TimeSpan.Zero));
-        var gpu = new Gpu(4m, clock);
+        var gpu = new Gpu(clock);
 
         // Act
         gpu.Start();
@@ -113,6 +99,25 @@ public class GpuTests
         gpu.Stop();
 
         // Assert
-        Assert.Equal(20m, gpu.GetTotalCost());
+        Assert.Equal(TimeSpan.FromHours(5), gpu.TotalRunningTime);
+    }
+
+    [Fact]
+    public void TotalRunningTime_WhenMultipleSessionsStopped_AccumulatesDurations()
+    {
+        // Arrange
+        var clock = new FakeTimeProvider(new DateTimeOffset(2025, 3, 1, 8, 0, 0, TimeSpan.Zero));
+        var gpu = new Gpu(clock);
+
+        // Act
+        gpu.Start();
+        clock.Advance(TimeSpan.FromHours(2));
+        gpu.Stop();
+        gpu.Start();
+        clock.Advance(TimeSpan.FromHours(3));
+        gpu.Stop();
+
+        // Assert
+        Assert.Equal(TimeSpan.FromHours(5), gpu.TotalRunningTime);
     }
 }

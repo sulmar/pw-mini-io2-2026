@@ -2,23 +2,18 @@ namespace Gpu;
 
 public class Gpu
 {
-    private readonly decimal _hourlyRate;
     private readonly TimeProvider _time;
     private DateTimeOffset? _runStartedAt;
     private TimeSpan _accumulatedRunning;
 
-    public Gpu(decimal hourlyRate, TimeProvider? time = null)
+    public Gpu(TimeProvider? time = null)
     {
-        if (hourlyRate <= 0)
-        {
-            throw new ArgumentOutOfRangeException(nameof(hourlyRate));
-        }
-
-        _hourlyRate = hourlyRate;
         _time = time ?? TimeProvider.System;
     }
 
     public GpuStatus Status { get; private set; } = GpuStatus.Idle;
+
+    public TimeSpan TotalRunningTime => _accumulatedRunning;
 
     public void Start()
     {
@@ -42,6 +37,4 @@ public class Gpu
         _runStartedAt = null;
         Status = GpuStatus.Idle;
     }
-
-    public decimal GetTotalCost() => _hourlyRate * (decimal)_accumulatedRunning.TotalHours;
 }
