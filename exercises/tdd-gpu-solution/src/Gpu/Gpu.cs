@@ -3,6 +3,9 @@ namespace Gpu;
 // Można rozważyć wzorzec Stan (State) do enkapsulacji przejść i reguł dla stanów karty (Idle, IsRunning, …).
 // Jeśli nie planujesz rozgałęzionej logiki zależnej od stanu ani drugiego miejsca z tą samą maszyną stanów,
 // YAGNI mówi: zostaw proste przejścia w Gpu, dopóki nie poczujesz tarcia.
+//
+// Nie używaj DateTime.UtcNow / DateTime.Now w logice czasu — blokuje to sensowne testy jednostkowe (czas jest niedeterministyczny).
+// Lepiej wstrzyknąć abstrakcję: wbudowany TimeProvider albo własny interfejs „zegara”.
 public class Gpu
 {
     private readonly TimeProvider _time;
