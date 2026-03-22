@@ -1,5 +1,8 @@
 namespace Gpu;
 
+// Można rozważyć wzorzec Stan (State) do enkapsulacji przejść i reguł dla stanów karty (Idle, IsRunning, …).
+// Jeśli nie planujesz rozgałęzionej logiki zależnej od stanu ani drugiego miejsca z tą samą maszyną stanów,
+// YAGNI mówi: zostaw proste przejścia w Gpu, dopóki nie poczujesz tarcia.
 public class Gpu
 {
     private readonly TimeProvider _time;
