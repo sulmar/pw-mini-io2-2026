@@ -33,29 +33,23 @@ public class GpuCostCalculatorTests
         Assert.Equal("duration", ex.ParamName);
     }
 
-    [Fact]
-    public void Calculate_WhenHourlyRateIs25AndDurationIsOneHour_Returns25()
+    [Theory]
+    [InlineData(1, 25, 25)]
+    [InlineData(5, 4, 20)]
+    [InlineData(10, 3, 30)]
+    public void Calculate_WhenDurationIsTypicalHours_ReturnsHourlyRateTimesHours(
+        double hours,
+        decimal hourlyRate,
+        decimal expectedCost)
     {
         // Arrange
         var calculator = new GpuCostCalculator();
+        var duration = TimeSpan.FromHours(hours);
 
         // Act
-        var cost = calculator.Calculate(25m, TimeSpan.FromHours(1));
+        var cost = calculator.Calculate(hourlyRate, duration);
 
         // Assert
-        Assert.Equal(25m, cost);
-    }
-
-    [Fact]
-    public void Calculate_WhenHourlyRateIs4AndDurationIsFiveHours_Returns20()
-    {
-        // Arrange
-        var calculator = new GpuCostCalculator();
-
-        // Act
-        var cost = calculator.Calculate(4m, TimeSpan.FromHours(5));
-
-        // Assert
-        Assert.Equal(20m, cost);
+        Assert.Equal(expectedCost, cost);
     }
 }
