@@ -2,10 +2,7 @@ namespace Gpu;
 
 public sealed class GpuCostCalculator
 {
-    /// <summary>
-    /// Koszt: stawka godzinowa × czas trwania (w godzinach).
-    /// </summary>
-    public decimal Calculate(decimal hourlyRate, TimeSpan duration)
+    public decimal Calculate(decimal hourlyRate, TimeSpan duration, decimal? maxCost = null)
     {
         if (hourlyRate <= 0)
         {
@@ -17,6 +14,12 @@ public sealed class GpuCostCalculator
             throw new ArgumentOutOfRangeException(nameof(duration));
         }
 
-        return hourlyRate * (decimal)duration.TotalHours;
+        if (maxCost is < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(maxCost));
+        }
+
+        var cost = hourlyRate * (decimal)duration.TotalHours;
+        return maxCost is null ? cost : Math.Min(cost, maxCost.Value);
     }
 }
