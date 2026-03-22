@@ -6,6 +6,11 @@ public class Gpu
 
     public void Start()
     {
+        if (Status == GpuStatus.IsRunning)
+        {
+            throw new InvalidOperationException("GPU already running.");
+        }
+
         Status = GpuStatus.IsRunning;
     }
 }
