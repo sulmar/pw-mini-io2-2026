@@ -16,6 +16,11 @@ public class Gpu
 
     public void Stop()
     {
+        if (Status == GpuStatus.Idle)
+        {
+            throw new InvalidOperationException("GPU is not running");
+        }
+
         Status = GpuStatus.Idle;
     }
 }

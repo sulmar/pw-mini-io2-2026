@@ -56,4 +56,17 @@ public class GpuTests
         // Assert
         Assert.Equal(GpuStatus.Idle, gpu.Status);
     }
+
+    [Fact]
+    public void Stop_WhenGpuIsIdle_ThrowsInvalidOperationExceptionWithExpectedMessage()
+    {
+        // Arrange
+        var gpu = new Gpu();
+
+        // Act
+        var exception = Assert.Throws<InvalidOperationException>(() => gpu.Stop());
+
+        // Assert
+        Assert.Equal("GPU is not running", exception.Message);
+    }
 }
