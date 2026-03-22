@@ -3,6 +3,10 @@ namespace Trip;
 // Można rozważyć wyniesienie int[,] _distances do osobnej klasy (np. DistanceMatrix).
 // Jeśli nie planujesz drugiego miejsca używającego tej samej struktury ani innej reprezentacji
 // (np. rzadka macierz), YAGNI mówi: zostaw w RoutePlanner, dopóki nie poczujesz tarcia.
+//
+// Jeśli w przyszłości macierz odległości będzie ładowana z zewnętrznego źródła (np. baza, Redis)
+// przez wzorzec repozytorium, RoutePlanner powinien nadal pozostać od niego niezależny i przyjmować
+// wyłącznie gotową macierz int[,] — pobranie danych zostaje poza tą klasą.
 public sealed class RoutePlanner
 {
     private readonly int[,] _distances;
