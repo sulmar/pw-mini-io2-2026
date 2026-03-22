@@ -4,16 +4,17 @@ namespace Gpu.Tests;
 
 public class GpuCostCalculatorTests
 {
+    private readonly GpuCostCalculator _sut = new();
+
     [Fact]
     public void Calculate_WhenHourlyRateIsNotPositive_ThrowsArgumentOutOfRangeException()
     {
         // Arrange
-        var calculator = new GpuCostCalculator();
         var duration = TimeSpan.FromHours(1);
 
         // Act
-        var exZero = Assert.Throws<ArgumentOutOfRangeException>(() => calculator.Calculate(0m, duration));
-        var exNegative = Assert.Throws<ArgumentOutOfRangeException>(() => calculator.Calculate(-1m, duration));
+        var exZero = Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Calculate(0m, duration));
+        var exNegative = Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Calculate(-1m, duration));
 
         // Assert
         Assert.Equal("hourlyRate", exZero.ParamName);
@@ -24,10 +25,9 @@ public class GpuCostCalculatorTests
     public void Calculate_WhenDurationIsNegative_ThrowsArgumentOutOfRangeException()
     {
         // Arrange
-        var calculator = new GpuCostCalculator();
 
         // Act
-        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => calculator.Calculate(10m, TimeSpan.FromHours(-1)));
+        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Calculate(10m, TimeSpan.FromHours(-1)));
 
         // Assert
         Assert.Equal("duration", ex.ParamName);
@@ -43,11 +43,10 @@ public class GpuCostCalculatorTests
         decimal expectedCost)
     {
         // Arrange
-        var calculator = new GpuCostCalculator();
         var duration = TimeSpan.FromHours(hours);
 
         // Act
-        var cost = calculator.Calculate(hourlyRate, duration);
+        var cost = _sut.Calculate(hourlyRate, duration);
 
         // Assert
         Assert.Equal(expectedCost, cost);
