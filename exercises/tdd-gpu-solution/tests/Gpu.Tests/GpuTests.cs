@@ -42,4 +42,18 @@ public class GpuTests
         // Assert
         Assert.Equal("GPU already running.", exception.Message);
     }
+
+    [Fact]
+    public void Stop_WhenGpuIsRunning_SetsStatusToIdle()
+    {
+        // Arrange
+        var gpu = new Gpu();
+        gpu.Start();
+
+        // Act
+        gpu.Stop();
+
+        // Assert
+        Assert.Equal(GpuStatus.Idle, gpu.Status);
+    }
 }

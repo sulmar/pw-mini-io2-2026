@@ -13,4 +13,9 @@ public class Gpu
 
         Status = GpuStatus.IsRunning;
     }
+
+    public void Stop()
+    {
+        Status = GpuStatus.Idle;
+    }
 }
