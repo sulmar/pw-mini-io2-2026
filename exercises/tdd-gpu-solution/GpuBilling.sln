@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8C961762-B18D-406D-8498-B1101E681C80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gpu", "src\Gpu\Gpu.csproj", "{670BA0F5-86C1-4D0B-A722-F3EDE0FA4E70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{AAEF166F-EFC4-4C14-91BF-1E1346D57A72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gpu.Tests", "tests\Gpu.Tests\Gpu.Tests.csproj", "{C896DD79-E706-432A-82B1-5ABAD81ED370}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{670BA0F5-86C1-4D0B-A722-F3EDE0FA4E70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{670BA0F5-86C1-4D0B-A722-F3EDE0FA4E70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{670BA0F5-86C1-4D0B-A722-F3EDE0FA4E70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{670BA0F5-86C1-4D0B-A722-F3EDE0FA4E70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C896DD79-E706-432A-82B1-5ABAD81ED370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C896DD79-E706-432A-82B1-5ABAD81ED370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C896DD79-E706-432A-82B1-5ABAD81ED370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C896DD79-E706-432A-82B1-5ABAD81ED370}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{670BA0F5-86C1-4D0B-A722-F3EDE0FA4E70} = {8C961762-B18D-406D-8498-B1101E681C80}
+		{C896DD79-E706-432A-82B1-5ABAD81ED370} = {AAEF166F-EFC4-4C14-91BF-1E1346D57A72}
+	EndGlobalSection
+EndGlobal
