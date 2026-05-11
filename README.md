@@ -28,3 +28,18 @@ Kod przykładowy i ćwiczeniowy:
 - **Calculator** — przykładowy projekt .NET (solution z biblioteką i testami jednostkowymi):
   - `CalculatorLibrary` — biblioteka z klasą `Calculator` (np. metoda `Add`) i `NumberValidator`;
   - `CalculatorLibrary.UnitTests` — testy jednostkowe (xUnit) do biblioteki kalkulatora.
+
+
+```mermaid
+stateDiagram-v2
+        Ready --> Selection : Confirm
+        Selection --> WaitingForPayment : Confirm
+        Selection --> Ready : Cancel
+        Selection --> Ready : Timeout
+        WaitingForPayment --> Delivering : Confirm
+        WaitingForPayment --> Ready : Cancel
+        WaitingForPayment --> Ready : Timeout
+        Delivering --> Ready : Confirm
+        Delivering --> Failed : Cancel
+[*] --> Ready
+```
