@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "VendingMachine/1.0.0": {
+        "dependencies": {
+          "Stateless": "5.20.1"
+        },
+        "runtime": {
+          "VendingMachine.dll": {}
+        }
+      },
+      "Stateless/5.20.1": {
+        "runtime": {
+          "lib/net10.0/Stateless.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "5.20.1.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "VendingMachine/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Stateless/5.20.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jQeuXgIeXEjFAImajavoxvJNcevO+zyK+9ICGzy0LRe/e1tP4vJUnO4Yrg6rP601wYRnulQs59mQH73TbIZzNg==",
+      "path": "stateless/5.20.1",
+      "hashPath": "stateless.5.20.1.nupkg.sha512"
+    }
+  }
+}
